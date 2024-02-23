@@ -216,6 +216,8 @@ function resetForm() {
   const dateInput = document.getElementById("selectedDate");
   dateInput.value = date[0];
 
+  const timeOptionsWrapper = document.getElementById("time-options");
+  timeOptionsWrapper.style.display = "none";
   const timeOptions = document.querySelectorAll('input[name="selectedTime"]');
   timeOptions.forEach((timeOption) => {
     timeOption.checked = false;
@@ -335,6 +337,8 @@ function generateServicesContent() {
 
 // date time
 function generateDateOptions() {
+  const timeOptions = document.getElementById("time-options");
+  timeOptions.style.display = "none";
   const dateInput = document.createElement("input");
   const defaultDate = document.querySelector(".time");
   dateInput.type = "date";
@@ -353,6 +357,7 @@ function generateDateOptions() {
   dateInput.addEventListener("change", function () {
     confirmData.date = this.value;
     defaultDate.textContent = `${confirmData.date}`;
+    timeOptions.style.display = "grid";
     updateConfirmationDetails();
   });
 }
