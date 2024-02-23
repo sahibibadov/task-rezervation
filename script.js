@@ -80,7 +80,6 @@ function openModal(title, color) {
 }
 
 let currentStep = 1;
-let dataChanged = false;
 
 // steplere klikden sonra steplerin gosterilmesi
 function showStep(stepNumber) {
@@ -127,7 +126,7 @@ function prevStep() {
   if (currentStep > 1) {
     // Kullanıcı verileri değiştirdiyse sonraki adımlardaki dataları sıfırla
 
-    showStep(stepNumber - 1);
+    showStep(currentStep - 1);
   }
 }
 // sonraki step
@@ -461,9 +460,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // butonlara event listener eklemek
   const nextButton = document.getElementById("nextButton");
-  nextButton.onclick = nextStep;
-
   // Önceki adıma dönmek için geri düğmesine tıklama olayını ekleyin
   const prevButton = document.getElementById("prevButton");
   prevButton.onclick = prevStep;
+  nextButton.onclick = nextStep;
 });
